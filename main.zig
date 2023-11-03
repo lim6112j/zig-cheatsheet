@@ -11,10 +11,10 @@ var b: u32 = undefined;
 // const values are preferred over var variables
 
 // arrays
-const c = [5]u8{'h', 'e','l','l','o'};
-const d = [_]u8{'w','o','r','l','d'};
+const c = [5]u8{ 'h', 'e', 'l', 'l', 'o' };
+const d = [_]u8{ 'w', 'o', 'r', 'l', 'd' };
 
-const array = [_]u8{'h','e','l','l','o'};
+const array = [_]u8{ 'h', 'e', 'l', 'l', 'o' };
 const length = array.len;
 
 // if
@@ -70,15 +70,15 @@ test "while with break" {
     try expect(sum == 1);
 }
 test "for" {
-    const string = [_]u8{'h','e','l','l','o'};
-    for (string[0..]) |character, index| {
+    const string = [_]u8{ 'h', 'e', 'l', 'l', 'o' };
+    for (string[0..], 0..) |character, index| {
         _ = character;
         _ = index;
     }
-    for (string)|character| {
+    for (string) |character| {
         _ = character;
     }
-    for (string[0..]) |_,index| {
+    for (string[0..], 0..) |_, index| {
         _ = index;
     }
     for (string) |_| {}
@@ -94,7 +94,7 @@ test "functions" {
 
 fn fibo(n: u16) u16 {
     if (n == 0 or n == 1) return n;
-    return fibo(n-1) + fibo(n-2);
+    return fibo(n - 1) + fibo(n - 2);
 }
 
 test "function recursion" {
